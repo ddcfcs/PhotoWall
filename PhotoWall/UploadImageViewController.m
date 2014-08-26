@@ -60,10 +60,10 @@
     [self.view addSubview:loadingSpinner];
     
     NSData *pictureData = UIImagePNGRepresentation(self.imgToUpload.image);
-    PFFile *file = [PFFile fileWithName:@"img" data:pictureData];
+    PFFile *file = [PFFile fileWithName:@"img" data:pictureData];                         //Parse中的图片名称为 img
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            PFObject *imageObject = [PFObject objectWithClassName:@"Picture"];
+            PFObject *imageObject = [PFObject objectWithClassName:@"Picture"];            //create "Picture" class
             [imageObject setObject:file forKey:@"image"];
             //[imageObject setObject:[PFUser currentUser].usernameforKey:@"User"];
             //[imageObject setObject:self.commentTextField.textforKey:@"comment"];
@@ -76,6 +76,7 @@
             }];
         }
     }];
+    //ues of testing
 //    [self.delegate addPhotosOnTheWall:self photoAdded:self.imgToUpload.image];
 //    [self.navigationController popViewControllerAnimated:YES];
 }

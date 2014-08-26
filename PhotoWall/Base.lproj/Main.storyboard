@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Usr-ov-nef">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GKH-NB-cy9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -101,50 +101,12 @@
                         <outlet property="passwordLoginText" destination="A6G-RR-VyG" id="bgw-it-GvS"/>
                         <outlet property="userLoginText" destination="qu3-zu-tQ4" id="CVF-C4-eug"/>
                         <outlet property="view" destination="c6N-9D-2vI" id="e2y-a8-IdG"/>
-                        <segue destination="LVi-Af-Rh2" kind="push" identifier="LoginSuccesful" id="1T5-mF-FqM"/>
+                        <segue destination="x3M-c8-IeO" kind="push" identifier="LoginSuccesful" id="A4e-S9-O06"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weO-4Q-AU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1405" y="-38"/>
-        </scene>
-        <!--Upload Image View Controller-->
-        <scene sceneID="V7i-cy-1nT">
-            <objects>
-                <viewController id="LVi-Af-Rh2" customClass="UploadImageViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dsd-tz-L5c"/>
-                        <viewControllerLayoutGuide type="bottom" id="ezv-cb-3ry"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nuj-4l-Rtg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQP-L2-DjK">
-                                <rect key="frame" x="20" y="327" width="82" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectPicturePressed:" destination="LVi-Af-Rh2" eventType="touchUpInside" id="wxg-3y-BtG"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekV-S2-DhO">
-                                <rect key="frame" x="20" y="125" width="232" height="188"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="zw7-pG-AZR"/>
-                    <connections>
-                        <outlet property="imgToUpload" destination="ekV-S2-DhO" id="LUb-ao-Eho"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cmi-IB-3UU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2491" y="175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rxM-Xk-aTS">
@@ -206,12 +168,12 @@
                         <outlet property="passwordRegisterText" destination="iLh-4v-GBa" id="k1H-3t-EX2"/>
                         <outlet property="userRegisterText" destination="euf-fa-kPB" id="TBq-S1-Fg9"/>
                         <outlet property="view" destination="Nbz-lT-SsH" id="JT7-EJ-W1f"/>
-                        <segue destination="LVi-Af-Rh2" kind="push" identifier="SignupSuccesful" id="3US-RZ-nZI"/>
+                        <segue destination="x3M-c8-IeO" kind="push" identifier="SignupSuccesful" id="Ghp-Ud-wkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkQ-k1-UU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917" y="643"/>
+            <point key="canvasLocation" x="1419" y="669"/>
         </scene>
         <!--Upload Image View Controller - Picture-->
         <scene sceneID="aod-es-EwI">
@@ -257,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnw-ft-ocL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="763"/>
+            <point key="canvasLocation" x="2441" y="227"/>
         </scene>
         <!--Wall Pictures View Controller - Wall-->
         <scene sceneID="e98-0g-5MZ">
@@ -292,25 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHp-b1-V7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211" y="763"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ch2-u2-2VH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Usr-ov-nef" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ect-db-csL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="x3M-c8-IeO" kind="relationship" relationship="rootViewController" id="gIe-u6-nPM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aKO-Xn-Dj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-283" y="763"/>
+            <point key="canvasLocation" x="1983" y="227"/>
         </scene>
     </scenes>
     <resources>
@@ -322,6 +266,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3US-RZ-nZI"/>
+        <segue reference="Ghp-Ud-wkE"/>
     </inferredMetricsTieBreakers>
 </document>

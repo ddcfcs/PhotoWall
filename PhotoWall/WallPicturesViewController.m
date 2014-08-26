@@ -8,6 +8,7 @@
 
 #import "WallPicturesViewController.h"
 #import "UploadImageViewController.h"
+#import <Parse/Parse.h>
 
 @interface WallPicturesViewController ()    <AddPhotosDelegate,UIActionSheetDelegate>
 
@@ -28,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getWallImages];
     
 }
 
@@ -51,12 +53,70 @@
 {
     //UIImageView *imgView = [[UIImageView alloc ] initWithImage:photo];
     //[self setRandomLocationForView:photo];
-    //[imgView sizeToFit];
+
+    CGRect rect = CGRectInset(self.view.bounds, self.view.frame.size.width/3, self.view.frame.size.height/3);
+//    CGFloat x = arc4random()%(int)rect.size.width+self.view.frame.size.width/3;
+//    CGFloat y = arc4random()%(int)rect.size.height+self.view.frame.size.height/3;
+    CGFloat x1 = self.view.frame.size.width;
+    CGFloat y1 = self.view.frame.size.height;
+    CGFloat x = arc4random()%(320-50);
+    CGFloat y = arc4random()%(480-80)+rect.size.height/2;
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:
-                            CGRectMake(10.0f, 10.0f, 200.0f, 150.0f)];
+                           rect];
     [imgView setImage:photo];
-//    imgView.center = CGPointMake(x, y);
+    imgView.contentMode = UIViewContentModeScaleAspectFit;                  //保持图片比例
+    imgView.center = CGPointMake(x, y);
     [self.view addSubview:imgView];
 }
+
+
+
+
+//Get the list of images
+-(void)getWallImages
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Picture"];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects,NSError *error){
+        if(!error){
+            //Everything was correct,put the new objects and load the wall
+            self.wallObjectsArray = nil;
+            self.wallObjectsArray = [[NSArray alloc] initWithArray:objects];
+            [self loadWallViews];
+        }else{
+            NSString *errorString = [[error userInfo]objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc]initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+        }
+    }];
+}
+
+
+-(void)loadWallViews
+{
+    CGFloat originY = 100;
+    for(PFObject *wallObject in self.wallObjectsArray){
+
+        //Build the view with the image
+        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width/2, 100)];
+
+        //add the image
+        PFFile *image = (PFFile*)[wallObject objectForKey:@"image"];
+        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
+        userImage.contentMode = UIViewContentModeScaleAspectFit;
+        userImage.frame = CGRectMake(0, 0, wallImageView.frame.size.width, 100);
+        [wallImageView addSubview:userImage];
+
+        [self.view addSubview:wallImageView];
+        
+        originY = originY + wallImageView.frame.size.width/2 +30;
+        
+    }
+    
+    
+}
+
+
+
 
 @end
